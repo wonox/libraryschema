@@ -16,6 +16,7 @@ logistics(物流制御)
 archive(アーカイブ/ストレージ/書架/書庫)
 authenticate(認証/認可)
 analyze(アクセス/利用分析)
+user(ユーザー管理)
 
 研究者 --> contents
 contents --> accessible
@@ -26,6 +27,15 @@ accessible --> metadata
 kb --> contents
 kb --> logistics
 kb --> access
+access --> analyze
+access --> 入手
+authenticate --> access
+logistics --> access
+metadata --> 検索用インデクス
+検索用インデクス --> kb
+user --> 検索
+user --> authenticate
+検索 --> 検索用インデクス
 
 subgraph contents
     画像/動画/音声
@@ -33,7 +43,6 @@ subgraph contents
     論文
     研究データ
 end
-
 subgraph publish
     access
 end
@@ -44,26 +53,27 @@ subgraph kb
    end
    licence
 end
-subgraph arcive
-end
-subgraph ユーザー管理
-end
-subgraph 検索用インデクス
-end 
-subgraph fullfilment
-end 
-subgraph test
+subgraph user
+   user_id
 end
 subgraph logistics
+   入館管理
+   貸出
+   配送
+   ダウンロード
 end 
 subgraph authenticate
    利用/アクセス可
 end
 subgraph access
+    直接アクセス
+    料金決済
 end 
-subgraph test
+subgraph archive
+   書架/書庫管理
+   配架
+   資料保存
 end  
-one --> two
 
 ```
 
