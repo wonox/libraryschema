@@ -9,7 +9,6 @@ title: Conceptual Schema of Academic Library
 ---
 flowchart TB
 
-accessible[アクセス可能化]
 licence["ライセンスデータ"]
 fullfilment["受入/購入/契約"]
 metadata["メタデータ/書誌"]
@@ -26,16 +25,16 @@ kb --> logistics
 kb --> access
 access --> analyze["アクセス/利用分析"]
 analyze --> fullfilment
-access --> 入手
+access --> get[/入手/]
 authenticate --> access
 logistics --> access
 logistics --> archive
 metadata --> 検索用インデクス
 metadata --> kb
 検索用インデクス --> kb
-user --> 検索
+user --> search[/検索/]
 user --> authenticate
-検索 --> 検索用インデクス
+search --> 検索用インデクス
 
 subgraph contents["コンテンツ"]
     画像/動画/音声
@@ -44,7 +43,7 @@ subgraph contents["コンテンツ"]
     研究データ
 end
 subgraph publish
-    access
+   accessible[アクセス可能化]
 end
 subgraph kb["所在データ/ナレッジベース"]
    subgraph holdings
@@ -70,7 +69,8 @@ subgraph access
     料金決済
 end 
 subgraph archive["アーカイブ/ストレージ/書架/書庫"]
-   書架/書庫管理
+   stack[(書架/書庫管理)]
+   database[(データベース)]
    配架
    資料保存
 end  
