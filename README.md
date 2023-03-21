@@ -31,6 +31,7 @@ authenticate --> access
 logistics --> access
 logistics --> archive
 metadata --> 検索用インデクス
+metadata --> kb
 検索用インデクス --> kb
 user --> 検索
 user --> authenticate
